@@ -1,4 +1,4 @@
-class PostController < Sinatra::Base
+class GuitarController < Sinatra::Base
 
   set :root, File.join(File.dirname(__FILE__), '..')
 
@@ -56,7 +56,6 @@ class PostController < Sinatra::Base
       body: params[:body]
       }
       $guitars.push(new_guitar)
-
       redirect '/'
     end
 
@@ -76,7 +75,6 @@ class PostController < Sinatra::Base
 
     #update
     put "/:id" do
-
       id = params[:id].to_i
 
       guitar = $guitars[id]
@@ -87,6 +85,7 @@ class PostController < Sinatra::Base
       $guitars[id] = guitar
 
       redirect '/'
+
     end
 
     #Delete
@@ -97,6 +96,5 @@ class PostController < Sinatra::Base
 
       redirect '/'
     end
-
 
 end
