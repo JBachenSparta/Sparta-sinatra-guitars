@@ -12,7 +12,7 @@ class GuitarController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  #globally defined variable
+  #globally defined variable as an array of hashes
   $guitars = [{
     id: 0,
     title: "Guitar1",
@@ -45,6 +45,7 @@ class GuitarController < Sinatra::Base
       }
 
       @guitars = $guitars
+      #calls new page, which calls form.erb which calls ^^^^^^ above code
       erb :'guitars/new'
 
     end
