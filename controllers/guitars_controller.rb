@@ -1,16 +1,18 @@
+# class GuitarController inherits from sinatra module class base
 class GuitarController < Sinatra::Base
 
+  # set the rooot of the parent directory of the current file
+  #__FILE__ will give us the file we are currently in.  + .. to ove back out of file.
   set :root, File.join(File.dirname(__FILE__), '..')
-
   #sets the views directory correctly, uses root defined^^^^
   #Proc binds views to the scope ontop of root variable.
   set :views, Proc.new{ File.join(root, "views") }
 
   configure :development do
     register Sinatra::Reloader
-
   end
 
+  #globally defined variable
   $guitars = [{
     id: 0,
     title: "Guitar1",
@@ -29,7 +31,6 @@ class GuitarController < Sinatra::Base
 
     #INDEX
     get "/" do
-
       @title = "this is the title of the blog"
       @guitars = $guitars
       erb :"guitars/index"
@@ -77,12 +78,12 @@ class GuitarController < Sinatra::Base
     put "/:id" do
       id = params[:id].to_i
 
-      guitar = $guitars[id]
+      @guitar = $guitars[id]
 
-      guitar[:title] = params[:title]
-      guitar[:body] = params[:body]
+      @guitar[:title] = params[:title]
+      @guitar[:body] = params[:body]
 
-      $guitars[id] = guitar
+      $guitars[id] = @guitar
 
       redirect '/'
 
