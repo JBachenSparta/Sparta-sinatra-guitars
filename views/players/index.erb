@@ -1,0 +1,15 @@
+<!-- erb as this is an erb file not html, this will inject into html -->
+
+<h1> <%= @title %></h1>
+<!-- without "=" on  you can run a loop  -->
+<% @player.each do |player| %>
+  <div >
+    <!-- post doesn't need to be @post below as its called into an array above ^^^ -->
+    <h3>
+      <a href="/<%= player.id %>"> <%=  player.title %> </a>
+      <p><%= player.body %></p>
+    </h3>
+
+  </div>
+
+<% end %>

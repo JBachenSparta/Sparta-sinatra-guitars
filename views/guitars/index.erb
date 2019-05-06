@@ -2,13 +2,14 @@
 
 <h1> <%= @title %></h1>
 <!-- without "=" on  you can run a loop  -->
-<% @guitars.each do |guitar| %>
+<% @guitar.each do |guitar| %>
   <div >
     <!-- post doesn't need to be @post below as its called into an array above ^^^ -->
     <h3>
-      <a href="/<%= guitar[:id] %>"> <%=  guitar[:title] %> </a>
-      <p><%= guitar[:body] %></p>
+      <a href="/<%= guitar.id %>"> <%=  guitar.title %> </a>
+      <p><%= guitar.body %></p>
     </h3>
+
   </div>
 
 <% end %>

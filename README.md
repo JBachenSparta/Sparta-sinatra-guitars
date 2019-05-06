@@ -14,3 +14,11 @@ set :root, File.join(File.dirname(__FILE__), '..')
 
 When should I use an instance variable as opposed to just a variable?
 Guitars_controller.erb line 78-86
+
+index / get
+new /new get
+create / post
+show /:id get
+edit /:id/edit get
+update /:id puts
+Delete /:id delete 

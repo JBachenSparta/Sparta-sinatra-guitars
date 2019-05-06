@@ -10,3 +10,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'rack'
+
+gem 'pg'
+
+gem 'thin'
