@@ -1,0 +1,84 @@
+.bigPlayer {
+  background:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) ), url("/images/ofalltheforc.jpg") no-repeat;
+  background-size: cover;
+  background-position: top center;
+  height: 250px;
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.bigBook {
+  background:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) ), url("/images/books.jpeg") no-repeat;
+  background-size: cover;
+  background-position: top center;
+  height: 250px;
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.bigGuitar {
+  background:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 1) ), url("/images/guitar.jpg") no-repeat;
+  background-size: cover;
+  background-position: top center;
+  height: 250px;
+  width: 100%;
+  padding-bottom: 48px;
+
+}
+
+.jumbotron h1{
+  color: #ffe7d6;
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.jumbotron small{
+  color: #ffa566;
+  /* padding-right: 10%; */
+}
+
+body {
+  background-color: lightgrey;
+}
+
+a {
+   color: orange;
+   padding-bottom: 10px;
+  }
+
+a:hover{
+  text-decoration:none;
+  cursor:pointer;
+}
+
+.row1{
+  border-top: solid 1px slategrey;
+  border-left: solid 1px slategrey;
+  margin: 6%;
+  background-image: linear-gradient(to bottom right, rgba(255, 231, 214, 0.5)0%, rgba(196, 218, 255, 0)50%);
+}
+
+.spacer{
+  padding: 10px;
+}
+
+.video {
+margin: 0 auto;
+
+}
+
+
+
+/* ------------  Media query  */
+
+@media screen and (max-width: 1200px){
+  .jumbotron h1{
+    font-size: 3em;
+  }
+}
+
+@media screen and (max-width: 700px){
+  .jumbotron h1{
+    font-size: 2em;
+  }
+}

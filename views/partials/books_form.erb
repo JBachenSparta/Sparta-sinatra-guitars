@@ -1,0 +1,19 @@
+<form action="/books/<%= @book.id %>" method="post">
+
+  <div>
+    <label>Book title:</label>
+    <!-- Name need to be the same as  -->
+    <input type="text" name="title" placeholder="Enter a title" value="<%= @book.title %>" >
+  </div>
+  <div >
+    <label>Author:</label>
+    <textarea name="author" rows="8" cols="80" placeholder="Put authors name in here" > <%= @book.author %></textarea>
+  </div>
+  <div>
+    <!-- button -->
+      <input class="spacer btn btn-primary" type="submit" value="Save book">
+  </div>
+  <% if(@book.id) %>
+  <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>

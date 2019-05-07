@@ -1,0 +1,18 @@
+
+<div class="container-fluid overflow-auto">
+  <header class="jumbotron bigPlayer">
+    <h1><%= @title %><small> <br>And facts</small></h1>
+  </header>
+<!-- without "=" on  you can run a loop  -->
+  <% @player.each do |player| %>
+    <div class="row row1">
+      <article class="col-xl-8 col-md-8 col-sm-8">
+        <!-- post doesn't need to be @post below as its called into an array above ^^^ -->
+        <h3>
+          <a class="spacer" href="/players/<%= player.id %>"> <%=  player.title %> </a>
+          <p class="spacer"><%= player.body %></p>
+        </h3>
+      </article>
+    </div>
+    <% end %>
+  </div>

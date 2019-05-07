@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%=  @title %></title>
+    <!-- #path is automatically from the public folder -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- <link rel="stylesheet" href="/bootstrap/bootstrap.min.js"> -->
+    <link rel="stylesheet" href="/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/another.css">
+    <script type="text/javascript">
+
+    </script>
+  </head>
+  <body>
+
+  <!-- container of all elements -->
+  <div class="container-fluid overflow-auto">
+
+    <%= erb(:'partials/navigation', :layout => false) %>
+
+    <main class="row">
+      <!-- Section Electric Guitar -->
+
+      <section class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+
+      <%= yield %>
+
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

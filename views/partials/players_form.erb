@@ -1,0 +1,19 @@
+<form action="/players/<%= @player.id %>" method="post">
+
+  <div>
+    <label>Guitar Player:</label>
+    <!-- Name need to be the same as  -->
+    <input type="text" name="title" placeholder="Enter a title" value="<%= @player.title %>" >
+  </div>
+  <div >
+    <label>Information:</label>
+    <textarea name="body" rows="8" cols="80" placeholder="Put your player in here" > <%= @player.body %></textarea>
+  </div>
+  <div>
+    <!-- button -->
+      <input class="spacer btn btn-primary" type="submit" value="Save player">
+  </div>
+  <% if(@player.id) %>
+  <input type="hidden" name="_method" value="PUT">
+  <% end %>
+</form>

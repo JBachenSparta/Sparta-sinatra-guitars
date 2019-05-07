@@ -1,0 +1,18 @@
+<div class="container-fluid overflow-auto">
+  <header class="jumbotron bigPlayer">
+    <h1><%= @player.title %><small> <br></small></h1>
+  </header>
+
+  <div class="row row1">
+    <article class="col-xl-8 col-md-8 col-sm-8">
+
+      <h1 class="spacer"> <%= @player.title %></h1>
+      <p class="spacer"><%= @player.body %></p>
+      <a class="spacer" href="/players/<%= @player.id %>/edit">EDIT 1</a>
+      <form class="spacer" action="/players/<%= @player.id %>" method="post">
+        <input class="spacer" type="hidden" name="_method" value="DELETE">
+        <input class="spacer btn btn-primary" type="submit" value="delete">
+      </form>
+    </article>
+  </div>
+</div>

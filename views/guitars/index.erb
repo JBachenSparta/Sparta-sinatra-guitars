@@ -1,0 +1,30 @@
+<!-- erb as this is an erb file not html, this will inject into html -->
+
+<div class="container-fluid overflow-auto">
+  <header class="jumbotron bigGuitar">
+    <h1><%= @title %><small> <br>The Instrument of ROCK!</small></h1>
+  </header>
+  <!-- without "=" on  you can run a loop  -->
+  <% @guitar.each do |guitar| %>
+      <div class="row row1">
+        <article class="col-xl-8 col-md-8 col-sm-8">
+      <!-- post doesn't need to be @post below as its called into an array above ^^^ -->
+          <h3>
+            <a class="spacer" href="/<%= guitar.id %>"> <%=  guitar.title %> </a>
+            <p class="spacer"><%= guitar.body %></p>
+          </h3>
+        </article>
+    </div>
+
+
+  <% end %>
+  <div class="col-sm-6 col-sm-offset-3">
+    <video class="video" width="500" controls>
+      <source src="/videos/video1.mp4" type="video/mp4">
+      </video>
+
+  </div>
+
+
+
+</div>
