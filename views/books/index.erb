@@ -1,0 +1,23 @@
+<!-- erb as this is an erb file not html, this will inject into html -->
+
+<div class="container-fluid overflow-auto">
+  <header class="jumbotron bigBook">
+    <h1><%= @title %><small> <br>And their authors</small></h1>
+  </header>
+<!-- without "=" on  you can run a loop  -->
+  <% @book.each do |book| %>
+    <div class="row row1">
+      <article class="col-xl-8 col-md-8 col-sm-8">
+        <!-- post doesn't need to be @post below as its called into an array above ^^^ -->
+        <h3>
+          <a class="spacer" href="/books/<%= book.id %>"> <%=  book.title %> </a>
+          <p class="spacer"><%= book.author %></p>
+        </h3>
+
+
+      </article>
+
+    </div>
+  <% end %>
+
+</div>

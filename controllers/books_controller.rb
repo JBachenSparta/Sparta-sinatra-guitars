@@ -1,5 +1,5 @@
 # class GuitarController inherits from sinatra module class base
-class GuitarController < Sinatra::Base
+class BookController < Sinatra::Base
 
   # set the rooot of the parent directory of the current file
   #__FILE__ will give us the file we are currently in.  + .. to move back out of file.
@@ -12,75 +12,80 @@ class GuitarController < Sinatra::Base
     register Sinatra::Reloader
   end
 
+
     #INDEX
-    get "/" do
-      @title = "Guitars"
+    get "/books" do
+      @title = "Books"
       # @guitars = $guitars
-      @guitar = Guitar.all
-      erb :'guitars/index'
+      @book = Book.all
+      erb :'books/index'
     end
 
     #NEW
-    get "/new" do
+    get "/books/new" do
 
-      @guitar = Guitar.new
+      @book = Book.new
 
-      erb :'guitars/new'
+      erb :'books/new'
 
     end
 
     #Create
-    post '/' do
+    post '/books' do
 
-      guitar = Guitar.new
+      book = Book.new
 
-      guitar.title = params[:title]
-      guitar.body = params[:body]
+      book.title = params[:title]
+      book.author = params[:author]
 
-      redirect '/'
+      book.save
+
+      redirect '/books'
     end
 
     #Show
-    get "/:id" do
+    get "/books/:id" do
       id = params[:id].to_i
 
-      @guitar = Guitar.find(id)
-      erb :'guitars/show'
+      @book = Book.find(id)
+      erb :'books/show'
     end
 
     #Edit
-    get '/:id/edit' do
+    get '/books/:id/edit' do
 
       id = params[:id].to_i
 
-      @guitar = Guitar.find(id)
+      @book = Book.find(id)
 
-      erb :'guitars/edit'
+
+      erb :'books/edit'
     end
 
     #update
-    put "/:id" do
+    put "/books/:id" do
       id = params[:id].to_i
 
-      guitar = Guitar.find(id)
+      # @guitar = $guitars[id]
+      book = Book.find(id)
 
 
-      guitar.title = params[:title]
-      guitar.body = params[:body]
+      book.title = params[:title]
+      book.author = params[:author]
 
-      guitar.save
+      book.save
 
-      redirect '/'
+      redirect '/books'
 
     end
 
     #Delete
-    delete "/:id" do
+    delete "/books/:id" do
       id = params[:id].to_i
 
-      Guitar.destroy(id)
+      Book.destroy(id)
 
-      redirect '/'
+      redirect '/books'
     end
 
 end

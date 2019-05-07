@@ -9,11 +9,11 @@ CREATE TABLE guitartable (
 );
 
                                      -- must be single quotes
-INSERT INTO guitartable (title, body) VALUES ('guitarpage1', 'Body Text 1');
-INSERT INTO guitartable (title, body) VALUES ('guitarpage2', 'Body Text 2');
-INSERT INTO guitartable (title, body) VALUES ('guitarpage3', 'Body Text 3');
-INSERT INTO guitartable (title, body) VALUES ('guitarpage4', 'Body Text 4');
-INSERT INTO guitartable (title, body) VALUES ('guitarpage5', 'Body Text 5');
+INSERT INTO guitartable (title, body) VALUES ('Gibson Les Paul', 'Description of Gibson Les Paul');
+INSERT INTO guitartable (title, body) VALUES ('Gibson SG', 'Description of Gibson SG');
+INSERT INTO guitartable (title, body) VALUES ('Fender Telecaster', 'Description of Fender Telecaster');
+INSERT INTO guitartable (title, body) VALUES ('Fender Stratocaster', 'Description of Fender Stratocaster');
+INSERT INTO guitartable (title, body) VALUES ('PRS Silver Sky', 'Description of PRS Silver Sky');
 
 DROP TABLE IF EXISTS guitarplayer;
 
@@ -23,14 +23,40 @@ CREATE TABLE guitarplayer (
   body TEXT
 );
 
-INSERT INTO guitarplayer (title, body) VALUES ('guitarpage1', 'Body Text 1');
-INSERT INTO guitarplayer (title, body) VALUES ('guitarpage2', 'Body Text 2');
-INSERT INTO guitarplayer (title, body) VALUES ('guitarpage3', 'Body Text 3');
+INSERT INTO guitarplayer (title, body) VALUES ('Slash', 'The lead guitarist from the band Guns n Roses, he is known for playing a Gibson Les Paul');
+INSERT INTO guitarplayer (title, body) VALUES ('David Gilmore', 'The lead guitarist from the band Pink Floyd, he is famous for his black Fender Stratocaster');
+INSERT INTO guitarplayer (title, body) VALUES ('Angus Young', 'The lead guitarist for AC/DC, he is known for playing a Gibson SG');
+
+DROP TABLE IF EXISTS bookstable;
+
+CREATE TABLE bookstable (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  author TEXT
+);
+
+INSERT INTO bookstable (title, author) VALUES ('Ninteen Eighty-Four', 'G Orwell');
+INSERT INTO bookstable (title, author) VALUES ('The Hobbit', 'J R R Tolkien');
+INSERT INTO bookstable (title, author) VALUES ('Moby Dick', 'H Melville');
+INSERT INTO bookstable (title, author) VALUES ('Animal Farm', 'G Orwell');
+INSERT INTO bookstable (title, author) VALUES ('The Silmarillion', 'J R R Tolkien');
+INSERT INTO bookstable (title, author) VALUES ('White Jacket', 'H Melville');
+
+
+DROP TABLE IF EXISTS bookscomparetable;
+
+CREATE TABLE bookscomparetable (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255),
+  author TEXT
+);
+
+
 
 
 
 -- command line run outside of psql
--- psql -d blog -f seed.sql
+-- psql -d guitarpage -f seed.sql
 -- inside psql run
 -- \c blog
 -- you should now be connected to database "blog"

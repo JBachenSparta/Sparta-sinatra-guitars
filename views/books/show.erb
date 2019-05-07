@@ -1,0 +1,19 @@
+
+
+<div class="container-fluid overflow-auto">
+  <header class="jumbotron bigBook">
+    <h1><%= @book.title %><small> <br><%= @book.author %></small></h1>
+  </header>
+  <div class="row row1">
+    <article class="col-xl-8 col-md-8 col-sm-8">
+
+      <h1 class="spacer"> <%= @book.title %></h1>
+      <p class="spacer"><%= @book.author %></p>
+      <a class="spacer" href="/books/<%= @book.id %>/edit">EDIT 1</a>
+      <form action="/books/<%= @book.id %>" method="post">
+        <input class="spacer" type="hidden" name="_method" value="DELETE">
+        <input class="spacer btn btn-primary" type="submit" value="delete">
+      </form>
+    </article>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-class PlayersController < Sinatra::Base
+class PlayerController < Sinatra::Base
 
   # set the rooot of the parent directory of the current file
   #__FILE__ will give us the file we are currently in.  + .. to ove back out of file.
@@ -11,117 +11,74 @@ class PlayersController < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  #globally defined variable as an array of hashes
-  # $guitars = [{
-  #   id: 0,
-  #   title: "Guitar1",
-  #   body: "This is my first post"
-  # },
-  # {
-  #   id: 1,
-  #   title: "Guitar2",
-  #   body: "This is my second post"
-  # },
-  # {
-  #   id: 2,
-  #   title: "Guitar3",
-  #   body: "This is my third post"
-  #   }]
-
     #INDEX
-    get "/players/" do
-      # route = env["sinatra.route"]
-      # response = {:endpoint => route}
-      @title = "this is the title of the blog"
-      # @guitars = $guitars
-      @guitar = Guitar.all
+    get "/players" do
+
+      @title = "Guitar Players"
+      # # @player = $players
+      @player = Player.all
       erb :"players/index"
     end
 
-    #NEW
+    # #NEW
     get "/players/new" do
-      # @guitar = {
-      # id: "",
-      # title: "",
-      # body: ""
-      # }
-      #
-      # @guitars = $guitars
+
       @player = Player.new
-      #calls new page, which calls form.erb which calls ^^^^^^ above code
-      erb :'guitars/new'
+      # #calls new page, which calls form.erb which calls ^^^^^^ above code
+      erb :'players/new'
 
     end
-
+    #
     #Create
-    post '/' do
-      # new_guitar ={
-      # id: $guitars.length,
-      # title: params[:title],
-      # body: params[:body]
-      # }
-      # $guitars.push(new_guitar)
+    post '/players' do
 
-      guitar = Guitar.new
+      player = Player.new
 
-      guitar.title = params[:title]
-      guitar.body = params[:body]
+      player.title = params[:title]
+      player.body = params[:body]
+      player.save
 
-      #save the posts
-      # run an instance method on this instance of create
-      guitar.save
-
-      redirect '/'
+      redirect '/players'
     end
 
     #Show
-    get "/:id" do
+    get "/players/:id" do
       id = params[:id].to_i
 
       # @guitar = $guitars[id]
-      @guitar = Guitar.find(id)
-      erb :'guitars/show'
+      @player = Player.find(id)
+      erb :'players/show'
     end
 
     #Edit
-    get "/:id/edit" do
+    get "/players/:id/edit" do
       id = params[:id].to_i
       # @guitar = $guitars[id]
-      @guitar = Guitar.find(id)
-      erb :'guitars/edit'
+      @player = Player.find(id)
+      erb :'players/edit'
     end
 
     #update
-    put "/:id" do
+    put "/players/:id" do
       id = params[:id].to_i
 
-      # @guitar = $guitars[id]
-      guitar = Guitar.find(id)
+      player = Player.find(id)
 
+      player.title = params[:title]
+      player.body = params[:body]
+      player.save
 
-      guitar.title = params[:title]
-      guitar.body = params[:body]
-
-      # @guitar[:title] = params[:title]
-      # @guitar[:body] = params[:body]
-
-      # $guitars[id] = @guitar
-
-      guitar.save
-
-      redirect '/'
+      redirect '/players'
 
     end
 
     #Delete
-    delete "/:id" do
+    delete "/players/:id" do
       id = params[:id].to_i
 
-      # $guitars.delete_at(id)
+      Player.destroy(id)
 
-      Guitar.destroy(id)
-
-      redirect '/'
+      redirect '/players'
     end
 
 end

@@ -1,17 +1,17 @@
 <form action="/<%= @guitar.id %>" method="post">
 
   <div>
-    <label>Title</label>
+    <label>Guitar:</label>
     <!-- Name need to be the same as  -->
     <input type="text" name="title" placeholder="Enter a title" value="<%= @guitar.title %>" >
   </div>
   <div >
-    <label>Body</label>
-    <textarea name="body" rows="8" cols="80" placeholder="Put your guitar in here" > <%= @guitar.title %></textarea>
+    <label>Description:</label>
+    <textarea name="body" rows="8" cols="80" placeholder="Put your guitar in here" > <%= @guitar.body %></textarea>
   </div>
   <div>
     <!-- button -->
-      <input type="submit" value="Save guitar">
+      <input class="spacer btn btn-primary" type="submit" value="Save guitar">
   </div>
   <% if(@guitar.id) %>
   <input type="hidden" name="_method" value="PUT">
